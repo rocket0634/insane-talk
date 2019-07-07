@@ -1,2 +1,1 @@
-# insane-talk
-insane talk module for ktane
+#[ModKit Wiki](../../wiki)
