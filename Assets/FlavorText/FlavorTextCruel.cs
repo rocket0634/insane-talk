@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -172,5 +172,89 @@ public class FlavorTextCruel : MonoBehaviour
         yield return new WaitForSeconds(1f);
         stage = 0;
         OnReactivate();
+    }
+    public string TwitchHelpMessage = "Use '!{0} press a1 a2 b1' to press button a1, a2 and b1! Don't use capitals!";
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        if(command.Contains("label")){
+            string commfinal=command.Replace("label ", "");
+		    string[] digitstring = commfinal.Split(' ');
+		    int tried;
+		    int index =1;
+            foreach(string digit in digitstring){
+                if(int.TryParse(digit, out tried)){
+                    if(index<=4){
+                        tried=int.Parse(digit);
+                        index+=1;
+                        if(buttonNumbers.Contains(tried)){
+                            yield return buttons[Array.IndexOf(buttonNumbers, tried)];
+                        }
+                        else{
+                            yield return null;
+                            yield return "sendtochaterror Label not found!";
+                            yield break;
+                        }
+                        }
+                        
+                    else{
+                        yield return null;
+                        yield return "sendtochaterror Too many digits!";
+                        yield break;
+                    }
+                }
+                else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+            }
+            }
+        else{
+            if(command.Contains("position")){
+                string commfinal=command.Replace("position ", "");
+            string[] digitstring = commfinal.Split(' ');
+            int tried;
+            int index =1;
+            foreach(string digit in digitstring){
+                if(int.TryParse(digit, out tried)){
+                    if(index<=4){
+                        tried=int.Parse(digit);
+                        index+=1;
+                        if(tried<5){
+                            if(tried>0){
+                        yield return buttons[tried-1];
+                            }
+                            else{
+                                yield return null;
+                                yield return "sendtochaterror Number too small!";
+                                yield break;
+                            }
+                        }
+                        else{
+                            yield return null;
+                            yield return "sendtochaterror Number too big!";
+                            yield break;
+                        }
+                    }
+                    else{
+                        yield return null;
+                        yield return "sendtochaterror Too many digits!";
+                        yield break;
+                    }
+                }
+                else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+            }
+                }
+        
+        else{
+                yield return null;
+				yield return "sendtochaterror Invalid command.";
+				yield break;
+        }
+    }
     }
 }
