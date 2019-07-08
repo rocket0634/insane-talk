@@ -173,7 +173,7 @@ public class FlavorTextCruel : MonoBehaviour
         stage = 0;
         OnReactivate();
     }
-    public string TwitchHelpMessage = "Use '!{0} press a1 a2 b1' to press button a1, a2 and b1! Don't use capitals!";
+    public string TwitchHelpMessage = "Use '!{0} label 1 2 3 4' to press button with label 1, 2, 3 and 4. Use '!{0} position 1 2 3 4' to press button in position 1, 2, 3 and 4. Buttons are numbered from 1 to 4 going from the top to the bottom.";
     IEnumerator ProcessTwitchCommand(string command)
     {
         if(command.Contains("label")){
