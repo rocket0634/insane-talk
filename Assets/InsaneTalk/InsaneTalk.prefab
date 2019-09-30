@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 114154658782931972}
   - component: {fileID: 114555924897262062}
   m_Layer: 0
-  m_Name: FlavorTextCruel
+  m_Name: InsaneTalk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

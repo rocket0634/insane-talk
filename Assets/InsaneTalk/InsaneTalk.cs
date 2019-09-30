@@ -5,14 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
 using System;
-public class FlavorTextOption
+
+public class InsaneTalk : MonoBehaviour
 {
-    public int steam_id;
-    public String text;
-}
-public class FlavorTextCruel : MonoBehaviour
-{
-    public TextAsset flavorTextJson;
+    public TextAsset flavorText;
     public Text textDisplay;
     public KMSelectable[] buttons;
     public MeshRenderer[] leds;
@@ -21,9 +17,8 @@ public class FlavorTextCruel : MonoBehaviour
     public Material off;
     public Material green;
     public Material red;
-    
-    List<FlavorTextOption> textOptions;
-    FlavorTextOption textOption;
+
+    Dictionary<int, string> matches = new Dictionary<int, string>();
     bool isActive = false;
     int[] buttonNumbers;
     bool[] buttonStates;
@@ -36,7 +31,6 @@ public class FlavorTextCruel : MonoBehaviour
     void Start()
     {
         _moduleId = _moduleIdCounter++;
-        textOptions = JsonConvert.DeserializeObject<List<FlavorTextOption>>(flavorTextJson.text);
         GetComponent<KMBombModule>().OnActivate += OnActivate;
     }
 
@@ -92,17 +86,6 @@ public class FlavorTextCruel : MonoBehaviour
             TextMesh buttonText = buttons[i].GetComponentInChildren<TextMesh>();
             buttonText.text = label;
         }
-
-        textOption = textOptions[UnityEngine.Random.Range(0, textOptions.Count)];
-        textDisplay.text = textOption.text;
-        moduleIds = new List<int>();
-        for (int i = 0; i < textOptions.Count; i++)
-        {
-            if (textOptions[i].text == textOption.text && !moduleIds.Contains(textOptions[i].steam_id))
-            {
-                moduleIds.Add(textOptions[i].steam_id);
-            }
-        }
     }
     
     void OnPress(int pressedButton)
@@ -119,7 +102,7 @@ public class FlavorTextCruel : MonoBehaviour
                 string steamId = id.ToString();
                 for (int i = 0; i < buttonNumbers.Count(); i++)
                 {
-                    if (!buttonStates[i] && (steamId.IndexOf(buttonNumbers[pressedButton].ToString()) > steamId.IndexOf(buttonNumbers[i].ToString()) || steamId.IndexOf(buttonNumbers[pressedButton].ToString()) < 0) && steamId.IndexOf(buttonNumbers[i].ToString()) >= 0 && textOption.steam_id > 0)
+                    if (!buttonStates[i] && (steamId.IndexOf(buttonNumbers[pressedButton].ToString()) > steamId.IndexOf(buttonNumbers[i].ToString()) || steamId.IndexOf(buttonNumbers[pressedButton].ToString()) < 0))
                     {
                         moduleIdsCopy.Remove(id);
                         break;
@@ -173,7 +156,7 @@ public class FlavorTextCruel : MonoBehaviour
         stage = 0;
         OnReactivate();
     }
-    public string TwitchHelpMessage = "Use '!{0} label 1 2 3 4' to press button with label 1, 2, 3 and 4. Use '!{0} position 1 2 3 4' to press button in position 1, 2, 3 and 4. Buttons are numbered from 1 to 4 going from the top to the bottom.";
+    private string TwitchHelpMessage = "Use '!{0} label 1 2 3 4' to press button with label 1, 2, 3 and 4. Use '!{0} position 1 2 3 4' to press button in position 1, 2, 3 and 4. Buttons are numbered from 1 to 4 going from the top to the bottom.";
     IEnumerator ProcessTwitchCommand(string command)
     {
         if(command.Contains("label")){
