@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb91d3263759104e9d96cd0a8cb720f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flavorTextJson: {fileID: 4900000, guid: f097d2191ed8b4045a9e71cb46055916, type: 3}
+  flavorText: {fileID: 4900000, guid: b40ec6df54aa6834f99ae5274a21a28d, type: 3}
   textDisplay: {fileID: 114828327601835434}
   buttons:
   - {fileID: 114494698725679894}
