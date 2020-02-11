@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ModConfig
   m_EditorClassIdentifier: 
   id: insanetalk
-  title: Insane Talk [REUPLOAD]
+  title: Insane Talk
   description: 'Insane Talk
 
     Don''t go insane, or ping me because the module says error.
@@ -20,7 +20,10 @@ MonoBehaviour:
     Based off @DVD''s Flavor Text EX module, reupload of Ryaninator''s module
 
 
-    Original module can be found/unsubscribed from here: https://steamcommunity.com/sharedfiles/filedetails/?id=1751515230'
+    Original module can be found/unsubscribed from here: https://steamcommunity.com/sharedfiles/filedetails/?id=1751515230
+
+
+    Manual: https://ktane.timwi.de/HTML/Insane%20Talk.html'
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 9b28aa6ee91d06c48bfdc50981d54004, type: 3}
