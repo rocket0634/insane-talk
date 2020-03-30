@@ -2158,6 +2158,7 @@ MonoBehaviour:
   - {fileID: 23407387866549264}
   - {fileID: 23360162615652912}
   bombInfo: {fileID: 114813551700054198}
+  bombModule: {fileID: 114015513170540992}
   off: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
   green: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
   red: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}

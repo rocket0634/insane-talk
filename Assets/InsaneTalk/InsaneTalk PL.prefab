@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 114850179723176374}
   - component: {fileID: 114813551700054198}
   - component: {fileID: 114154658782931972}
-  - component: {fileID: 114137056886025864}
+  - component: {fileID: 114891995122009456}
   m_Layer: 0
   m_Name: InsaneTalk PL
   m_TagString: Untagged
@@ -1989,33 +1989,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighlightScale: {x: 0, y: 0, z: 0}
   OutlineAmount: 0
---- !u!114 &114137056886025864
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727785293345104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f09a6a067beab54d848cab59b526601, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flavorText: {fileID: 4900000, guid: 7fdbbaf2b0cc55e41b1e662201c1e8fa, type: 3}
-  textDisplay: {fileID: 114828327601835434}
-  buttons:
-  - {fileID: 114494698725679894}
-  - {fileID: 114870622457105046}
-  - {fileID: 114772109430009900}
-  - {fileID: 114697158477940674}
-  leds:
-  - {fileID: 23902772444691996}
-  - {fileID: 23053290181644056}
-  - {fileID: 23407387866549264}
-  - {fileID: 23360162615652912}
-  bombInfo: {fileID: 114813551700054198}
-  off: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
-  green: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
-  red: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}
 --- !u!114 &114154658782931972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2491,6 +2464,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - GUI/KT 3D Text
+--- !u!114 &114891995122009456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727785293345104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb91d3263759104e9d96cd0a8cb720f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flavorText: {fileID: 4900000, guid: 7fdbbaf2b0cc55e41b1e662201c1e8fa, type: 3}
+  textDisplay: {fileID: 114828327601835434}
+  buttons:
+  - {fileID: 114494698725679894}
+  - {fileID: 114870622457105046}
+  - {fileID: 114772109430009900}
+  - {fileID: 114697158477940674}
+  leds:
+  - {fileID: 23902772444691996}
+  - {fileID: 23053290181644056}
+  - {fileID: 23407387866549264}
+  - {fileID: 23360162615652912}
+  bombInfo: {fileID: 114813551700054198}
+  bombModule: {fileID: 114015513170540992}
+  off: {fileID: 2100000, guid: 935bb5c8b474db049908d1d19deb7993, type: 2}
+  green: {fileID: 2100000, guid: 8c2541a39c73b5a4588c4e95ade4cdda, type: 2}
+  red: {fileID: 2100000, guid: 1515b0918013c15468573c8cce654ecb, type: 2}
 --- !u!114 &114921305846485362
 MonoBehaviour:
   m_ObjectHideFlags: 1

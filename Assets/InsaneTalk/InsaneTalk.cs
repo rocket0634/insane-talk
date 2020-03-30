@@ -14,6 +14,7 @@ public class InsaneTalk : MonoBehaviour
     public KMSelectable[] buttons;
     public MeshRenderer[] leds;
     public KMBombInfo bombInfo;
+    public KMBombModule bombModule;
 
     public Material off;
     public Material green;
@@ -154,7 +155,7 @@ public class InsaneTalk : MonoBehaviour
     {
         //Put together the log message before logging it
         log = string.Format(log, obj);
-        Debug.LogFormat("[Insane Talk #{0}] {1}", _moduleId, log);
+        Debug.LogFormat("[{2} #{0}] {1}", _moduleId, log, bombModule.ModuleDisplayName);
     }
 
     private string TwitchHelpMessage = "Use '!{0} label 1 2 3 4' to press button with label 1, 2, 3 and 4. Use '!{0} position 1 2 3 4' to press button in position 1, 2, 3 and 4. Buttons are numbered from 1 to 4 going from the top to the bottom.";
