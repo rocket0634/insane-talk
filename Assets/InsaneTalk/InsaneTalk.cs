@@ -37,6 +37,7 @@ public class InsaneTalk : MonoBehaviour
         _moduleId = _moduleIdCounter++;
         textOptions = JsonConvert.DeserializeObject<Dictionary<string, string>>(flavorText.text);
         GetComponent<KMBombModule>().OnActivate += OnActivate;
+        Log("Mod Bundle: v1.1");
     }
 
     //Called by KTaNE (KMBombModule.OnActivate)
