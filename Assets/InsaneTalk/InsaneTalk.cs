@@ -36,8 +36,8 @@ public class InsaneTalk : MonoBehaviour
     {
         _moduleId = _moduleIdCounter++;
         textOptions = JsonConvert.DeserializeObject<Dictionary<string, string>>(flavorText.text);
-        GetComponent<KMBombModule>().OnActivate += OnActivate;
-        Log("Mod Bundle: v1.1");
+        bombModule.OnActivate += OnActivate;
+        Log("Mod Bundle: v1.2");
     }
 
     //Called by KTaNE (KMBombModule.OnActivate)
@@ -79,9 +79,15 @@ public class InsaneTalk : MonoBehaviour
         //Select transfers the Dictionary options into an Ienumerable of key values, which is then made into a list so it can be indexed.
         textOption = textOptions.Select(x => x.Key).ToList()[UnityEngine.Random.Range(0, textOptions.Count)];
         string text = textOptions[textOption];
+        if (UnityEngine.Random.Range(0, 10) == 0 && bombModule.ModuleType == "insanetalk")
+        {
+            text = "\"" + text + "\"";
+            textOption = new string(textOption.Reverse().ToArray());
+        }
         textDisplay.text = text;
         Log("The chosen phrase was {0}", text);
-        Log("The expected set of numbers is {0}", textOption);
+        Log("The expected set of numbers is {0}{1}", textOption,
+            text.Contains("\"") ? " due to the phrase being surrounded by quotes." : "");
         //Remove duplicate characters, make all of the characters ints, and only include values that appear in buttonNumbers
         var textOptionArray = textOption.Distinct().Select(x => x - '0').Where(x => buttonNumbers.Contains(x));
         condensedOption = string.Join("", Joiner(textOptionArray));
